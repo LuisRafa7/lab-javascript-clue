@@ -28,21 +28,54 @@ const roomsArray = [
     { name: 'room12'},
     { name: 'room13'},
     { name: 'room14'},
-    { name: 'room15'},];
+    { name: 'room15'}
+];
 
 // Weapons Array
 
-const weaponsArray = ['Faca', 'Espingarda', 'Navalha', 'Caçadeira', 'Nerf', 'Garfo'];
+const weaponsArray = [
+    { name: "weapon1", weight: 1000 },
+    { name: "weapon2", weight: 900 },
+    { name: "weapon3", weight: 800 },
+    { name: "weapon4", weight: 700 },
+    { name: "weapon5", weight: 600 },
+    { name: "weapon6", weight: 500 },
+    { name: "weapon7", weight: 400 },
+    { name: "weapon8", weight: 300 },
+    { name: "weapon9", weight: 200 }
+];
 
 
 // ITERATION 2
 
-function selectRandom() {}
+function selectRandom(arr) {
+    const pickNumber = Math.floor(Math.random() * arr.length);
+    const select = arr[pickNumber];
+    return select
+}
 
-function pickMystery() {}
+function pickMystery() {
+    let suspect = selectRandom(suspectsArray);
+    let room = selectRandom(roomsArray);
+    let weapon = selectRandom(weaponsArray);
+    const mystery = {
+        suspect,
+        room,
+        weapon
+    }
+
+    return mystery
+    
+}
+
+let mystery1 = pickMystery();
 
 
 // ITERATION 3
 
-function revealMystery() {}
+function revealMystery() {
+    let reveal = `${mystery1.suspect.firstName} ${mystery1.suspect.lastName} killed Mr. Boddy using the ${mystery1.weapon.name} in the ${mystery1.room.name}!`;
+    return reveal;
+}
+
 
